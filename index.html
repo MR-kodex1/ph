@@ -1,0 +1,1960 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة كريم الصباح التفاعلية - متجهات السرعة والسرعة النسبية</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap');
+
+        :root {
+            --navy: #0b2545;
+            --navy-2: #13315c;
+            --blue: #1d5b9e;
+            --sky: #3b8ed0;
+            --gold: #e0a92e;
+            --gold-soft: #f7d070;
+            --bg: #f4f7fb;
+            --card: #ffffff;
+            --ink: #16233a;
+            --muted: #5b6b84;
+            --green: #1f9d6b;
+            --red: #d64545;
+            --line: #dbe4ef;
+            --shadow: 0 10px 30px rgba(11, 37, 69, .10);
+            --shadow-lg: 0 18px 50px rgba(11, 37, 69, .18);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Cairo', 'Segoe UI', Tahoma, sans-serif;
+            background: var(--bg);
+            color: var(--ink);
+            line-height: 1.9;
+            overflow-x: hidden;
+        }
+
+        /* ============ HEADER ============ */
+        header.hero {
+            position: relative;
+            background:
+                radial-gradient(1100px 500px at 85% -10%, rgba(59, 142, 208, .35), transparent 60%),
+                radial-gradient(900px 420px at 10% 0%, rgba(224, 169, 46, .20), transparent 60%),
+                linear-gradient(135deg, var(--navy) 0%, var(--navy-2) 55%, #16436e 100%);
+            color: #fff;
+            padding: 56px 24px 120px;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        header.hero::after {
+            content: "";
+            position: absolute;
+            inset: auto 0 -1px 0;
+            height: 80px;
+            background: var(--bg);
+            clip-path: polygon(0 100%, 100% 100%, 100% 22%, 0 70%);
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, .10);
+            border: 1px solid rgba(255, 255, 255, .25);
+            padding: 7px 18px;
+            border-radius: 999px;
+            font-size: .85rem;
+            font-weight: 600;
+            letter-spacing: .4px;
+            backdrop-filter: blur(6px);
+            animation: fadeUp .8s ease both;
+        }
+
+        .hero-badge .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--gold-soft);
+            box-shadow: 0 0 12px var(--gold);
+        }
+
+        header.hero h1 {
+            font-size: clamp(1.8rem, 4.4vw, 3.1rem);
+            font-weight: 900;
+            margin: 18px auto 10px;
+            max-width: 900px;
+            line-height: 1.4;
+            animation: fadeUp .8s .1s ease both;
+        }
+
+        header.hero h1 span {
+            color: var(--gold-soft);
+        }
+
+        header.hero .sub {
+            max-width: 760px;
+            margin: 0 auto;
+            color: #c9dcf0;
+            font-size: 1.05rem;
+            animation: fadeUp .8s .2s ease both;
+        }
+
+        .brand {
+            margin-top: 26px;
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            background: linear-gradient(135deg, rgba(224, 169, 46, .16), rgba(255, 255, 255, .06));
+            border: 1px solid rgba(224, 169, 46, .45);
+            padding: 12px 26px;
+            border-radius: 18px;
+            animation: fadeUp .8s .3s ease both;
+        }
+
+        .brand .logo {
+            width: 46px;
+            height: 46px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, var(--gold), #c98f1b);
+            display: grid;
+            place-items: center;
+            font-weight: 900;
+            font-size: 1.25rem;
+            color: var(--navy);
+            box-shadow: 0 6px 18px rgba(224, 169, 46, .45);
+        }
+
+        .brand .txt {
+            text-align: right;
+        }
+
+        .brand .txt b {
+            display: block;
+            font-size: 1.25rem;
+            color: #fff;
+            letter-spacing: .5px;
+        }
+
+        .brand .txt small {
+            color: var(--gold-soft);
+            font-size: .8rem;
+            font-weight: 600;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(18px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ============ NAV ============ */
+        nav.sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, .92);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--line);
+            box-shadow: 0 4px 20px rgba(11, 37, 69, .07);
+        }
+
+        .nav-inner {
+            max-width: 1150px;
+            margin: 0 auto;
+            padding: 0 18px;
+            display: flex;
+            gap: 6px;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+
+        .nav-inner::-webkit-scrollbar {
+            display: none;
+        }
+
+        .nav-inner a {
+            flex: 0 0 auto;
+            padding: 15px 16px;
+            text-decoration: none;
+            color: var(--muted);
+            font-weight: 700;
+            font-size: .9rem;
+            border-bottom: 3px solid transparent;
+            white-space: nowrap;
+            transition: .25s;
+        }
+
+        .nav-inner a:hover {
+            color: var(--blue);
+        }
+
+        .nav-inner a.active {
+            color: var(--blue);
+            border-bottom-color: var(--gold);
+        }
+
+        /* ============ LAYOUT ============ */
+        main {
+            max-width: 1150px;
+            margin: 0 auto;
+            padding: 50px 18px 80px;
+        }
+
+        section.block {
+            margin-bottom: 70px;
+            scroll-margin-top: 80px;
+        }
+
+        .sec-head {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 26px;
+        }
+
+        .sec-num {
+            width: 52px;
+            height: 52px;
+            flex: 0 0 52px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, var(--blue), var(--sky));
+            color: #fff;
+            display: grid;
+            place-items: center;
+            font-weight: 900;
+            font-size: 1.3rem;
+            box-shadow: 0 8px 22px rgba(29, 91, 158, .35);
+        }
+
+        .sec-head h2 {
+            font-size: clamp(1.3rem, 2.6vw, 1.85rem);
+            font-weight: 900;
+            color: var(--navy);
+            line-height: 1.4;
+        }
+
+        .sec-head p {
+            color: var(--muted);
+            font-size: .95rem;
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 22px;
+            padding: 28px;
+            box-shadow: var(--shadow);
+            margin-bottom: 22px;
+        }
+
+        .card h3 {
+            color: var(--navy);
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card h3::before {
+            content: "";
+            width: 6px;
+            height: 22px;
+            border-radius: 4px;
+            background: var(--gold);
+        }
+
+        .card p {
+            color: var(--ink);
+            margin-bottom: 12px;
+        }
+
+        .muted {
+            color: var(--muted);
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 22px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        @media(max-width:860px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            .grid-3 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ============ QUESTION BANNER ============ */
+        .q-banner {
+            background: linear-gradient(135deg, #fff8e8, #fffdf7);
+            border: 1px solid #f0dfb4;
+            border-right: 6px solid var(--gold);
+            border-radius: 18px;
+            padding: 22px 26px;
+            margin-bottom: 26px;
+        }
+
+        .q-banner .tag {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--navy);
+            font-weight: 800;
+            font-size: .78rem;
+            padding: 3px 12px;
+            border-radius: 999px;
+            margin-bottom: 8px;
+        }
+
+        .q-banner p {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--navy-2);
+        }
+
+        /* ============ ILLUSTRATIONS ============ */
+        .illus {
+            background: #fbfdff;
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            padding: 14px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .illus svg {
+            width: 100%;
+            height: auto;
+            display: block;
+            max-width: 100%;
+        }
+
+        .illus .cap {
+            font-size: .82rem;
+            color: var(--muted);
+            margin-top: 8px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .svg-label {
+            font-family: 'Cairo', sans-serif;
+            font-weight: 700;
+        }
+
+        /* ============ PREDICT BOX ============ */
+        .predict {
+            background: linear-gradient(135deg, #eef6ff, #f7fbff);
+            border: 1px dashed var(--sky);
+            border-radius: 18px;
+            padding: 24px;
+        }
+
+        .predict h4 {
+            color: var(--blue);
+            margin-bottom: 14px;
+            font-size: 1.05rem;
+        }
+
+        .predict .opt {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+
+        .predict .opt label {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            background: #fff;
+            border: 1.5px solid var(--line);
+            border-radius: 12px;
+            padding: 11px 15px;
+            cursor: pointer;
+            transition: .2s;
+            font-size: .95rem;
+        }
+
+        .predict .opt label:hover {
+            border-color: var(--sky);
+            background: #f4faff;
+        }
+
+        .predict .opt input {
+            accent-color: var(--blue);
+            margin-top: 6px;
+            width: 17px;
+            height: 17px;
+            flex: 0 0 auto;
+        }
+
+        .predict .opt label.correct {
+            border-color: var(--green);
+            background: #eafaf2;
+        }
+
+        .predict .opt label.wrong {
+            border-color: var(--red);
+            background: #fdeeee;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: linear-gradient(135deg, var(--blue), var(--sky));
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            padding: 11px 26px;
+            font-family: inherit;
+            font-weight: 800;
+            font-size: .95rem;
+            cursor: pointer;
+            transition: .25s;
+            box-shadow: 0 8px 20px rgba(29, 91, 158, .30);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 26px rgba(29, 91, 158, .42);
+        }
+
+        .btn.gold {
+            background: linear-gradient(135deg, #e0a92e, #c98f1b);
+            box-shadow: 0 8px 20px rgba(224, 169, 46, .35);
+            color: var(--navy);
+        }
+
+        .btn.ghost {
+            background: transparent;
+            color: var(--blue);
+            border: 1.5px solid var(--blue);
+            box-shadow: none;
+        }
+
+        .btn.ghost:hover {
+            background: #eef6ff;
+        }
+
+        .feedback {
+            margin-top: 12px;
+            font-weight: 700;
+            font-size: .92rem;
+            display: none;
+        }
+
+        .feedback.show {
+            display: block;
+            animation: fadeUp .4s ease both;
+        }
+
+        .feedback.ok {
+            color: var(--green);
+        }
+
+        .feedback.no {
+            color: var(--red);
+        }
+
+        /* ============ EXPERIMENT / LAB ============ */
+        .lab {
+            display: grid;
+            grid-template-columns: 1.15fr .85fr;
+            gap: 22px;
+        }
+
+        @media(max-width:900px) {
+            .lab {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .lab-stage {
+            background: linear-gradient(180deg, #fdfefe, #f2f8fd);
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            padding: 10px;
+        }
+
+        .lab-controls .ctrl {
+            margin-bottom: 18px;
+        }
+
+        .lab-controls label {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 700;
+            font-size: .9rem;
+            margin-bottom: 7px;
+            color: var(--navy-2);
+        }
+
+        .lab-controls label span {
+            color: var(--blue);
+            font-weight: 900;
+            font-variant-numeric: tabular-nums;
+        }
+
+        input[type=range] {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 100%;
+            height: 8px;
+            border-radius: 99px;
+            background: linear-gradient(90deg, var(--sky), var(--gold));
+            outline: none;
+        }
+
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: #fff;
+            border: 3px solid var(--blue);
+            cursor: pointer;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, .2);
+        }
+
+        input[type=range]::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #fff;
+            border: 3px solid var(--blue);
+            cursor: pointer;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            font-size: .9rem;
+        }
+
+        .data-table th {
+            background: var(--navy);
+            color: #fff;
+            padding: 10px;
+            font-size: .82rem;
+            font-weight: 700;
+        }
+
+        .data-table th:first-child {
+            border-radius: 0 12px 0 0;
+        }
+
+        .data-table th:last-child {
+            border-radius: 12px 0 0 0;
+        }
+
+        .data-table td {
+            padding: 9px 10px;
+            text-align: center;
+            border-bottom: 1px solid var(--line);
+            font-variant-numeric: tabular-nums;
+        }
+
+        .data-table tr:nth-child(even) td {
+            background: #f8fbfe;
+        }
+
+        .data-table td b {
+            color: var(--blue);
+        }
+
+        .pill {
+            display: inline-block;
+            background: #eef6ff;
+            color: var(--blue);
+            font-weight: 800;
+            font-size: .78rem;
+            padding: 2px 12px;
+            border-radius: 999px;
+            border: 1px solid #cfe4f8;
+        }
+
+        /* ============ FORMULA BOX ============ */
+        .formula {
+            background: linear-gradient(135deg, var(--navy), var(--navy-2));
+            color: #fff;
+            border-radius: 18px;
+            padding: 24px 26px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .formula::before {
+            content: "";
+            position: absolute;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(224, 169, 46, .28), transparent 70%);
+            top: -90px;
+            left: -60px;
+        }
+
+        .formula .f-title {
+            color: var(--gold-soft);
+            font-weight: 800;
+            font-size: .85rem;
+            letter-spacing: 1px;
+            margin-bottom: 14px;
+        }
+
+        .formula .eq {
+            font-family: 'Cambria Math', 'Times New Roman', serif;
+            font-size: clamp(1.3rem, 3.2vw, 1.9rem);
+            font-weight: 700;
+            direction: ltr;
+            display: inline-block;
+            padding: 6px 10px;
+        }
+
+        .formula .eq .var {
+            color: #9fd0ff;
+        }
+
+        .formula .eq .op {
+            color: var(--gold-soft);
+        }
+
+        .formula .note {
+            font-size: .88rem;
+            color: #bcd2e8;
+            margin-top: 10px;
+        }
+
+        .eq-inline {
+            font-family: 'Cambria Math', 'Times New Roman', serif;
+            direction: ltr;
+            display: inline-block;
+            background: #eef6ff;
+            color: var(--navy);
+            border: 1px solid #cfe4f8;
+            padding: 1px 10px;
+            border-radius: 8px;
+            font-weight: 700;
+        }
+
+        /* ============ RELATIVE VELOCITY ============ */
+        .rel-wrap {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 22px;
+            align-items: stretch;
+        }
+
+        @media(max-width:900px) {
+            .rel-wrap {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .toggle-row {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+        }
+
+        .chip {
+            border: 1.5px solid var(--line);
+            background: #fff;
+            border-radius: 999px;
+            padding: 8px 18px;
+            font-family: inherit;
+            font-weight: 700;
+            font-size: .88rem;
+            color: var(--muted);
+            cursor: pointer;
+            transition: .2s;
+        }
+
+        .chip:hover {
+            border-color: var(--sky);
+        }
+
+        .chip.active {
+            background: var(--blue);
+            color: #fff;
+            border-color: var(--blue);
+            box-shadow: 0 6px 16px rgba(29, 91, 158, .28);
+        }
+
+        /* ============ WORKED EXAMPLE ============ */
+        .steps {
+            counter-reset: st;
+            list-style: none;
+        }
+
+        .steps li {
+            position: relative;
+            padding: 14px 58px 14px 16px;
+            margin-bottom: 10px;
+            background: #f8fbfe;
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            font-size: .95rem;
+        }
+
+        .steps li::before {
+            counter-increment: st;
+            content: counter(st);
+            position: absolute;
+            right: 14px;
+            top: 14px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--blue), var(--sky));
+            color: #fff;
+            display: grid;
+            place-items: center;
+            font-weight: 900;
+            font-size: .85rem;
+        }
+
+        .answer-box {
+            background: linear-gradient(135deg, #eafaf2, #f4fdf8);
+            border: 1.5px solid #b9e8d3;
+            border-radius: 16px;
+            padding: 18px 22px;
+            margin-top: 14px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .answer-box .ico {
+            width: 44px;
+            height: 44px;
+            flex: 0 0 44px;
+            border-radius: 50%;
+            background: var(--green);
+            color: #fff;
+            display: grid;
+            place-items: center;
+            font-size: 1.3rem;
+            font-weight: 900;
+        }
+
+        .answer-box b {
+            color: var(--green);
+            font-size: 1.15rem;
+        }
+
+        /* ============ EXERCISES ============ */
+        .ex {
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 16px;
+            background: #fff;
+            transition: .25s;
+        }
+
+        .ex:hover {
+            border-color: #bcd7ef;
+            box-shadow: 0 8px 24px rgba(11, 37, 69, .07);
+        }
+
+        .ex .ex-q {
+            font-weight: 700;
+            color: var(--navy-2);
+            margin-bottom: 12px;
+        }
+
+        .ex .ex-a {
+            display: none;
+            background: #f4faff;
+            border-right: 4px solid var(--sky);
+            border-radius: 10px;
+            padding: 14px 16px;
+            font-size: .92rem;
+            margin-top: 6px;
+        }
+
+        .ex .ex-a.show {
+            display: block;
+            animation: fadeUp .35s ease both;
+        }
+
+        .ex .ex-a b {
+            color: var(--blue);
+        }
+
+        .ex .btn.small {
+            padding: 7px 18px;
+            font-size: .85rem;
+        }
+
+        /* ============ FOOTER ============ */
+        footer {
+            background: linear-gradient(135deg, var(--navy), #0a1c33);
+            color: #bcd2e8;
+            text-align: center;
+            padding: 40px 20px 30px;
+        }
+
+        footer .brand-mini {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        footer .logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--gold), #c98f1b);
+            display: grid;
+            place-items: center;
+            font-weight: 900;
+            color: var(--navy);
+        }
+
+        footer b {
+            color: #fff;
+            font-size: 1.1rem;
+        }
+
+        footer small {
+            display: block;
+            margin-top: 8px;
+            color: #7f96b0;
+            font-size: .8rem;
+        }
+
+        /* ============ PROGRESS BAR ============ */
+        #progress {
+            position: fixed;
+            top: 0;
+            right: 0;
+            height: 4px;
+            width: 0;
+            background: linear-gradient(90deg, var(--gold), var(--sky));
+            z-index: 999;
+            transition: width .1s linear;
+            box-shadow: 0 0 12px rgba(224, 169, 46, .7);
+        }
+
+        /* misc */
+        .note-line {
+            border-right: 4px solid var(--gold);
+            background: #fffdf5;
+            padding: 12px 16px;
+            border-radius: 10px;
+            font-size: .92rem;
+            color: #6b5a2a;
+        }
+
+        .kbd {
+            display: inline-block;
+            background: var(--navy);
+            color: #fff;
+            border-radius: 7px;
+            padding: 0 9px;
+            font-weight: 800;
+            font-size: .82rem;
+            margin: 0 2px;
+        }
+
+        .svg-label {
+            fill: #16233a;
+        }
+
+        .svg-label-sm {
+            font-size: 11px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="progress"></div>
+
+    <!-- ================= HERO ================= -->
+    <header class="hero">
+        <span class="hero-badge"><span class="dot"></span> فيزياء تفاعلية • الصف الأول الثانوي</span>
+        <h1>متجهات السرعة <span>والسرعة النسبية</span></h1>
+        <p class="sub">لماذا ترسو العبّارة أسفل مصب النيل رغم أن مقدمتها موجّهة مباشرة نحو الهدف؟ ولماذا يترك المطر
+            خطوطًا مائلة على نافذة حافلة متحركة؟ ظاهرتان يوميتان… ومبدأ واحد!</p>
+
+        <div class="brand">
+            <div class="logo">ك</div>
+            <div class="txt">
+                <b>منصة كريم الصباح التفاعلية</b>
+                <small>تعلّم… جرّب… استنتج</small>
+            </div>
+        </div>
+    </header>
+
+    <!-- ================= NAV ================= -->
+    <nav class="sticky-nav">
+        <div class="nav-inner">
+            <a href="#intro" class="active">المقدمة والسؤال</a>
+            <a href="#predict">توقّع قبل أن تستمر</a>
+            <a href="#lab">معمل الاستكشاف</a>
+            <a href="#model">من الملاحظة إلى النموذج</a>
+            <a href="#components">تحليل السرعة</a>
+            <a href="#example">مثال محلول</a>
+            <a href="#relative">السرعة النسبية</a>
+            <a href="#exercises">تدريبات</a>
+        </div>
+    </nav>
+
+    <main>
+
+        <!-- ================= 1. INTRO ================= -->
+        <section class="block" id="intro">
+            <div class="sec-head">
+                <div class="sec-num">١</div>
+                <div>
+                    <h2>سؤال الدرس: ظاهرتان… مبدأ واحد</h2>
+                    <p>تأمّل الصورتين، ثم فكّر: ما الذي يربط بينهما؟</p>
+                </div>
+            </div>
+
+            <div class="q-banner">
+                <span class="tag">سؤال الدرس</span>
+                <p>لماذا ترسو عبّارة موجّهة مباشرة عبر النيل عند نقطة أسفل مصب النيل بمسافة؟ ولماذا يترك المطر المتساقط
+                    خطوطًا مائلة على نافذة حافلة متحركة؟</p>
+            </div>
+
+            <div class="grid-2">
+                <!-- Boat illustration -->
+                <div class="illus">
+                    <svg viewBox="0 0 460 320" role="img" aria-label="عبّارة تعبر النيل مع تيار مائي">
+                        <!-- sky / banks -->
+                        <rect x="0" y="0" width="460" height="60" fill="#d9c9a3" />
+                        <rect x="0" y="260" width="460" height="60" fill="#d9c9a3" />
+                        <!-- water -->
+                        <rect x="0" y="60" width="460" height="200" fill="#9fd3f0" />
+                        <g stroke="#7cc0e4" stroke-width="2" opacity=".8">
+                            <path d="M0 90 q20 -6 40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0" />
+                            <path d="M0 140 q20 -6 40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0" />
+                            <path d="M0 190 q20 -6 40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0" />
+                            <path d="M0 235 q20 -6 40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0" />
+                        </g>
+                        <!-- target point -->
+                        <circle cx="230" cy="60" r="6" fill="#d64545" />
+                        <text x="230" y="48" text-anchor="middle" class="svg-label" font-size="13" fill="#16233a">الهدف
+                            هنا</text>
+                        <!-- landing point -->
+                        <circle cx="330" cy="260" r="6" fill="#1f9d6b" />
+                        <text x="330" y="284" text-anchor="middle" class="svg-label" font-size="13" fill="#16233a">الرسو
+                            هنا</text>
+                        <!-- boat heading dashed line (straight across) -->
+                        <line x1="150" y1="230" x2="230" y2="60" stroke="#16233a" stroke-width="2"
+                            stroke-dasharray="6 5" />
+                        <!-- actual path -->
+                        <line x1="150" y1="230" x2="330" y2="260" stroke="#0b2545" stroke-width="3" />
+                        <!-- boat -->
+                        <g transform="translate(150,230) rotate(-8)">
+                            <path d="M-28 0 q14 14 28 0 q14 -14 28 0 q-14 18 -28 18 q-14 0 -28 -18z" fill="#8b5a2b" />
+                            <path d="M-20 -2 l40 0 l-6 -12 l-28 0 z" fill="#c9a06a" />
+                            <line x1="0" y1="-14" x2="0" y2="-34" stroke="#5b3a1a" stroke-width="3" />
+                            <path d="M0 -34 l18 10 l-18 10 z" fill="#e0a92e" />
+                        </g>
+                        <!-- river current arrow -->
+                        <g>
+                            <line x1="40" y1="120" x2="150" y2="120" stroke="#1d5b9e" stroke-width="5"
+                                marker-end="url(#arrowBlue)" />
+                            <text x="95" y="108" text-anchor="middle" class="svg-label" font-size="13"
+                                fill="#1d5b9e">تيار الماء</text>
+                        </g>
+                        <defs>
+                            <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+                                <path d="M0,0 L8,3 L0,6 z" fill="#1d5b9e" />
+                            </marker>
+                        </defs>
+                    </svg>
+                    <div class="cap">شكل (1.1.1): مقدمتها نحو الهدف… لكنها ترسو أسفل المصب!</div>
+                </div>
+
+                <!-- Rain illustration -->
+                <div class="illus">
+                    <svg viewBox="0 0 460 320" role="img" aria-label="مطر يترك خطوطًا مائلة على نافذة حافلة متحركة">
+                        <!-- outside rain -->
+                        <rect x="0" y="0" width="280" height="320" fill="#b9d6ea" />
+                        <g stroke="#4a7fa8" stroke-width="2.5" opacity=".85">
+                            <line x1="30" y1="20" x2="30" y2="55" />
+                            <line x1="70" y1="40" x2="70" y2="75" />
+                            <line x1="110" y1="15" x2="110" y2="50" />
+                            <line x1="150" y1="45" x2="150" y2="80" />
+                            <line x1="190" y1="20" x2="190" y2="55" />
+                            <line x1="230" y1="50" x2="230" y2="85" />
+                            <line x1="50" y1="110" x2="50" y2="145" />
+                            <line x1="100" y1="130" x2="100" y2="165" />
+                            <line x1="150" y1="105" x2="150" y2="140" />
+                            <line x1="200" y1="140" x2="200" y2="175" />
+                            <line x1="240" y1="115" x2="240" y2="150" />
+                            <line x1="70" y1="200" x2="70" y2="235" />
+                            <line x1="130" y1="220" x2="130" y2="255" />
+                            <line x1="190" y1="205" x2="190" y2="240" />
+                            <line x1="240" y1="240" x2="240" y2="275" />
+                            <line x1="40" y1="270" x2="40" y2="305" />
+                            <line x1="110" y1="285" x2="110" y2="320" />
+                        </g>
+                        <text x="140" y="300" text-anchor="middle" class="svg-label" font-size="12" fill="#16233a">المطر
+                            في الخارج: عمودي</text>
+
+                        <!-- bus body -->
+                        <rect x="280" y="30" width="180" height="260" rx="24" fill="#1d5b9e" />
+                        <rect x="280" y="30" width="180" height="260" rx="24" fill="url(#busGrad)" opacity=".5" />
+                        <!-- window -->
+                        <rect x="305" y="65" width="130" height="180" rx="14" fill="#dff0fb" stroke="#0b2545"
+                            stroke-width="4" />
+                        <!-- slanted rain lines on window -->
+                        <g stroke="#4a7fa8" stroke-width="2.5" opacity=".9">
+                            <line x1="320" y1="85" x2="350" y2="130" />
+                            <line x1="360" y1="80" x2="390" y2="125" />
+                            <line x1="395" y1="95" x2="425" y2="140" />
+                            <line x1="330" y1="145" x2="360" y2="190" />
+                            <line x1="370" y1="140" x2="400" y2="185" />
+                            <line x1="405" y1="160" x2="425" y2="190" />
+                            <line x1="325" y1="200" x2="350" y2="235" />
+                            <line x1="375" y1="195" x2="405" y2="235" />
+                        </g>
+                        <text x="370" y="272" text-anchor="middle" class="svg-label" font-size="12" fill="#fff">الخطوط
+                            المائلة على الزجاج</text>
+
+                        <!-- bus motion arrow -->
+                        <line x1="300" y1="20" x2="420" y2="20" stroke="#e0a92e" stroke-width="6"
+                            marker-end="url(#arrowGold)" />
+                        <text x="360" y="12" text-anchor="middle" class="svg-label" font-size="12" fill="#e0a92e">حركة
+                            الحافلة</text>
+                        <defs>
+                            <marker id="arrowGold" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+                                <path d="M0,0 L8,3 L0,6 z" fill="#e0a92e" />
+                            </marker>
+                            <linearGradient id="busGrad" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0" stop-color="#3b8ed0" />
+                                <stop offset="1" stop-color="#0b2545" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <div class="cap">شكل (2.1.1): المطر يسقط رأسيًا… لكن الخطوط مائلة!</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>حقيقة أساسية: المثلثات القائمة</h3>
+                <p>عندما تكون السرعتان متعامدتين، فإنهما تُشكّلان مع السرعة المحصلة <b>مثلثًا قائم الزاوية</b>، وتنطبق
+                    عليه نظرية فيثاغورث:</p>
+                <div class="formula">
+                    <div class="f-title">نظرية فيثاغورث</div>
+                    <div class="eq"><span class="var">c</span><span class="op">²</span> = <span
+                            class="var">a</span><span class="op">²</span> + <span class="var">b</span><span
+                            class="op">²</span></div>
+                    <div class="note">تُستخدم لإيجاد مقدار السرعة المحصلة عند تعامد المركبتين</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= 2. PREDICT ================= -->
+        <section class="block" id="predict">
+            <div class="sec-head">
+                <div class="sec-num">٢</div>
+                <div>
+                    <h2>توقّع قبل أن تستمر</h2>
+                    <p>اكتب توقّعاتك أولًا… ثم اكتشف الإجابة في نهاية الدرس</p>
+                </div>
+            </div>
+
+            <div class="grid-2">
+                <!-- Q A -->
+                <div class="predict" data-predict="a">
+                    <h4>أ) مع ثبات إعدادات محرك العبّارة، إذا أصبح تيار النهر أسرع، فهل سيستغرق العبور زمنًا أطول أم نفس
+                        الزمن أم زمنًا أقصر؟</h4>
+                    <div class="opt">
+                        <label><input type="radio" name="pa" value="longer"><span>زمنًا أطول</span></label>
+                        <label data-correct="1"><input type="radio" name="pa" value="same"><span>نفس
+                                الزمن</span></label>
+                        <label><input type="radio" name="pa" value="shorter"><span>زمنًا أقصر</span></label>
+                    </div>
+                    <button class="btn gold check-btn" data-for="a">تحقّق من توقّعك</button>
+                    <div class="feedback" id="fb-a"></div>
+                </div>
+
+                <!-- Q B -->
+                <div class="predict" data-predict="b">
+                    <h4>ب) من داخل الحافلة المتحركة، هل الخطوط المائلة للمطر قادمة من أمام الحافلة أم من خلفها؟</h4>
+                    <div class="opt">
+                        <label><input type="radio" name="pb" value="front"><span>من أمام الحافلة</span></label>
+                        <label data-correct="1"><input type="radio" name="pb" value="back"><span>من خلفها</span></label>
+                    </div>
+                    <button class="btn gold check-btn" data-for="b">تحقّق من توقّعك</button>
+                    <div class="feedback" id="fb-b"></div>
+                </div>
+            </div>
+
+            <div class="note-line" style="margin-top:16px;">
+                💡 <b>تلميح:</b> تذكّر أن السرعة كمية متجهة، وأن الزمن الذي تستغرقه العبّارة يعتمد على المركبة العمودية
+                فقط (عبر النهر)، وليس على مركبة التيار الموازية للضفة.
+            </div>
+        </section>
+
+        <!-- ================= 3. LAB ================= -->
+        <section class="block" id="lab">
+            <div class="sec-head">
+                <div class="sec-num">٣</div>
+                <div>
+                    <h2>معمل الاستكشاف: ارسم عملية العبور</h2>
+                    <p>حرّك المؤشرات لمحاكاة تجربة سحب الورقة أثناء تحريك القلم على المسطرة</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>كيف تعمل المحاكاة؟</h3>
+                <p>القلم يتحرك على طول المسطرة (حركة أفقية)، والورقة تُسحب للأسفل (حركة رأسية). القلم يرسم مساره على
+                    الورقة. لاحظ كيف تتكون <b>السرعة المحصلة</b> من تراكب الحركتين.</p>
+            </div>
+
+            <div class="lab">
+                <div class="lab-stage">
+                    <svg viewBox="0 0 520 400" id="labSvg" role="img" aria-label="محاكاة سحب الورقة وتحريك القلم">
+                        <!-- paper -->
+                        <rect x="60" y="40" width="360" height="300" rx="10" fill="#ffffff" stroke="#c8d6e5"
+                            stroke-width="2" />
+                        <text x="240" y="30" text-anchor="middle" class="svg-label" font-size="12" fill="#5b6b84">ورقة
+                            A4</text>
+
+                        <!-- ruler -->
+                        <rect x="60" y="40" width="360" height="46" rx="6" fill="#d7b98a" stroke="#a8875a"
+                            stroke-width="2" />
+                        <g stroke="#a8875a" stroke-width="2">
+                            <line x1="80" y1="40" x2="80" y2="62" />
+                            <line x1="110" y1="40" x2="110" y2="56" />
+                            <line x1="140" y1="40" x2="140" y2="62" />
+                            <line x1="170" y1="40" x2="170" y2="56" />
+                            <line x1="200" y1="40" x2="200" y2="62" />
+                            <line x1="230" y1="40" x2="230" y2="56" />
+                            <line x1="260" y1="40" x2="260" y2="62" />
+                            <line x1="290" y1="40" x2="290" y2="56" />
+                            <line x1="320" y1="40" x2="320" y2="62" />
+                            <line x1="350" y1="40" x2="350" y2="56" />
+                            <line x1="380" y1="40" x2="380" y2="62" />
+                            <line x1="410" y1="40" x2="410" y2="56" />
+                        </g>
+
+                        <!-- horizontal component (pen motion) -->
+                        <line id="hLine" x1="80" y1="100" x2="80" y2="100" stroke="#1d5b9e" stroke-width="4"
+                            stroke-linecap="round" />
+                        <!-- vertical component (paper motion) -->
+                        <line id="vLine" x1="80" y1="100" x2="80" y2="100" stroke="#e0a92e" stroke-width="4"
+                            stroke-linecap="round" stroke-dasharray="1 0" />
+                        <!-- diagonal path -->
+                        <line id="dLine" x1="80" y1="100" x2="80" y2="100" stroke="#0b2545" stroke-width="3.5" />
+                        <!-- pen -->
+                        <g id="penG">
+                            <circle cx="80" cy="100" r="8" fill="#d64545" stroke="#7a1f1f" stroke-width="2" />
+                            <polygon points="80,92 74,78 86,78" fill="#2b2b2b" />
+                        </g>
+                        <!-- start marker -->
+                        <circle cx="80" cy="100" r="4" fill="#5b6b84" />
+                        <!-- end markers -->
+                        <circle id="endH" cx="80" cy="100" r="5" fill="#1d5b9e" />
+                        <circle id="endV" cx="80" cy="100" r="5" fill="#e0a92e" />
+                        <circle id="endD" cx="80" cy="100" r="5" fill="#0b2545" />
+
+                        <!-- labels -->
+                        <text x="240" y="380" text-anchor="middle" class="svg-label" font-size="12" fill="#5b6b84">كلما
+                            زادت السرعتان، تغيّر شكل المسار المائل</text>
+                    </svg>
+                </div>
+
+                <div class="lab-controls">
+                    <div class="ctrl">
+                        <label>سرعة سحب الورقة (المكوّن الرأسي) <span id="vPaperVal">2.0</span></label>
+                        <input type="range" id="vPaper" min="0.5" max="4" step="0.1" value="2">
+                    </div>
+                    <div class="ctrl">
+                        <label>سرعة القلم على المسطرة (المكوّن الأفقي) <span id="vPenVal">3.0</span></label>
+                        <input type="range" id="vPen" min="0.5" max="4" step="0.1" value="3">
+                    </div>
+
+                    <div class="card" style="padding:16px; margin-bottom:14px; box-shadow:none;">
+                        <h3 style="font-size:1rem;">النتائج الحيّة</h3>
+                        <table class="data-table">
+                            <tr>
+                                <th>المقدار</th>
+                                <th>القيمة</th>
+                            </tr>
+                            <tr>
+                                <td>المركبة الأفقية <span class="eq-inline">Vx</span></td>
+                                <td><b id="outVx">3.0</b> m/s</td>
+                            </tr>
+                            <tr>
+                                <td>المركبة الرأسية <span class="eq-inline">Vy</span></td>
+                                <td><b id="outVy">2.0</b> m/s</td>
+                            </tr>
+                            <tr>
+                                <td>السرعة المحصلة <span class="eq-inline">V</span></td>
+                                <td><b id="outV">3.6</b> m/s</td>
+                            </tr>
+                            <tr>
+                                <td>الزاوية <span class="eq-inline">θ</span></td>
+                                <td><b id="outTheta">33.7</b>°</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="note-line" style="font-size:.85rem;">
+                        ⚠️ <b>ملاحظة:</b> المجموع الجبري البسيط (Vx + Vy) لا يساوي السرعة المحصلة! لأن الجمع هنا
+                        <b>اتجاهي</b> وليس حسابيًا.
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" style="margin-top:22px;">
+                <h3>حلّل ما جمعته</h3>
+                <p><b>س:</b> قارن بين طول المسار المائل والمسافتين الأفقي والرأسي. هل يساوي طول المسار المائل مجموع
+                    المسافتين؟ ولماذا؟</p>
+                <button class="btn ghost" onclick="document.getElementById('labAns').classList.toggle('show')">اعرض
+                    التفسير</button>
+                <div id="labAns" class="ex-a" style="display:none; margin-top:12px;">
+                    <b>لا،</b> طول المسار المائل لا يساوي مجموع المسافتين. لأن المسافتين (العبور والسحب) متعامدتان،
+                    وتُشكّلان مع المسار المائل مثلثًا قائم الزاوية. وبحسب نظرية فيثاغورث: طول المسار المائل = <span
+                        class="eq-inline">√(العبور² + السحب²)</span>، وهو دائمًا <b>أقل</b> من المجموع الجبري البسيط
+                    للمسافتين.
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= 4. MODEL ================= -->
+        <section class="block" id="model">
+            <div class="sec-head">
+                <div class="sec-num">٤</div>
+                <div>
+                    <h2>من الملاحظة إلى النموذج</h2>
+                    <p>السرعة كمية متجهة… والجمع هنا هندسي وليس حسابيًا</p>
+                </div>
+            </div>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h3>السرعة كمية متجهة</h3>
+                    <p>كلمة <b>السرعة</b> تصف مقدار سرعة الجسم <b>والاتجاه</b> الذي يتحرك فيه معًا — فهي كمية متجهة
+                        تُمثَّل بسهم.</p>
+                    <p>وأحيانًا يكون لجسم واحد مركبتا سرعة: كقارب يدفعه محركه بينما يحمله تيار النهر في الوقت نفسه.
+                        عندئذ يتراكب السهمان من الرأس إلى الذيل لتكوين <b>سرعة محصلة واحدة</b>:</p>
+                    <div class="formula" style="margin-top:12px;">
+                        <div class="eq"><span class="var">V</span> = <span class="var">V</span><sub>1</sub> + <span
+                                class="var">V</span><sub>2</sub></div>
+                        <div class="note">جمع المتجهات (اتجاهي — هندسي)</div>
+                    </div>
+                    <p style="margin-top:12px;">وهذا هو <b>جمع المتجهات</b>، وهي عملية هندسية لا حسابية. يجب جمع متجهات
+                        السرعة هندسيًا لإيجاد المحصلة؛ ولا يصح الجمع الجبري البسيط للمقادير إلا عندما تكون المتجهات على
+                        استقامة واحدة.</p>
+                </div>
+
+                <div class="illus">
+                    <svg viewBox="0 0 460 340" role="img" aria-label="مثلث متجهات السرعة للقارب">
+                        <!-- water -->
+                        <rect x="0" y="0" width="460" height="340" fill="#dff0fb" />
+                        <!-- river banks -->
+                        <rect x="0" y="0" width="460" height="34" fill="#d9c9a3" />
+                        <rect x="0" y="306" width="460" height="34" fill="#d9c9a3" />
+                        <g stroke="#a9d4ee" stroke-width="2">
+                            <path d="M0 90 q24 -7 48 0 t48 0 t48 0 t48 0 t48 0 t48 0 t48 0 t48 0 t48 0" />
+                            <path d="M0 170 q24 -7 48 0 t48 0 t48 0 t48 0 t48 0 t48 0 t48 0 t48 0 t48 0" />
+                            <path d="M0 250 q24 -7 48 0 t48 0 t48 0 t48 0 t48 0 t48 0 t48 0 t48 0 t48 0" />
+                        </g>
+
+                        <!-- vectors from origin -->
+                        <g>
+                            <!-- boat velocity (up) -->
+                            <line x1="140" y1="250" x2="140" y2="90" stroke="#1f9d6b" stroke-width="5"
+                                marker-end="url(#arGreen)" />
+                            <text x="118" y="170" text-anchor="middle" class="svg-label" font-size="12" fill="#1f9d6b">V
+                                <tspan font-size="10">قارب</tspan></text>
+                            <text x="118" y="185" text-anchor="middle" class="svg-label" font-size="11"
+                                fill="#1f9d6b">4.0 m/s</text>
+
+                            <!-- current velocity (right) -->
+                            <line x1="140" y1="250" x2="320" y2="250" stroke="#d64545" stroke-width="5"
+                                marker-end="url(#arRed)" />
+                            <text x="230" y="272" text-anchor="middle" class="svg-label" font-size="12"
+                                fill="#d64545">تيار النهر 3.0 m/s</text>
+
+                            <!-- resultant (diagonal) -->
+                            <line x1="140" y1="250" x2="320" y2="90" stroke="#0b2545" stroke-width="6"
+                                marker-end="url(#arNavy)" />
+                            <text x="255" y="150" text-anchor="middle" class="svg-label" font-size="14" fill="#0b2545">V
+                                المحصلة</text>
+                            <text x="255" y="168" text-anchor="middle" class="svg-label" font-size="12"
+                                fill="#0b2545">5.0 m/s</text>
+
+                            <!-- dashed completion -->
+                            <line x1="140" y1="90" x2="320" y2="90" stroke="#5b6b84" stroke-width="2"
+                                stroke-dasharray="6 5" />
+                            <line x1="320" y1="90" x2="320" y2="250" stroke="#5b6b84" stroke-width="2"
+                                stroke-dasharray="6 5" />
+
+                            <!-- right angle mark -->
+                            <path d="M140 232 L158 232 L158 250" fill="none" stroke="#5b6b84" stroke-width="2" />
+                        </g>
+
+                        <defs>
+                            <marker id="arGreen" markerWidth="11" markerHeight="11" refX="8" refY="3" orient="auto">
+                                <path d="M0,0 L8,3 L0,6 z" fill="#1f9d6b" />
+                            </marker>
+                            <marker id="arRed" markerWidth="11" markerHeight="11" refX="8" refY="3" orient="auto">
+                                <path d="M0,0 L8,3 L0,6 z" fill="#d64545" />
+                            </marker>
+                            <marker id="arNavy" markerWidth="12" markerHeight="12" refX="8" refY="3" orient="auto">
+                                <path d="M0,0 L9,3 L0,6 z" fill="#0b2545" />
+                            </marker>
+                        </defs>
+                    </svg>
+                    <div class="cap">شكل (5.1.1): تراكب سرعة القارب مع سرعة التيار يعطي السرعة المحصلة</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>مصطلح مهم</h3>
+                <p><span class="pill">السرعة المحصلة</span> متجه السرعة الواحد الذي له المسار نفسه لتجهي سرعة مُركَّبين
+                    معًا.</p>
+            </div>
+        </section>
+
+        <!-- ================= 5. COMPONENTS ================= -->
+        <section class="block" id="components">
+            <div class="sec-head">
+                <div class="sec-num">٥</div>
+                <div>
+                    <h2>تحليل السرعة إلى المركبتين</h2>
+                    <p>تعامل مع كل محور على حدة، ثم أعد التركيب</p>
+                </div>
+            </div>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h3>القواعد الأساسية</h3>
+                    <p>يمكن تحليل أي سرعة إلى مركبتين متعامدتين على المحورين:</p>
+                    <div class="formula" style="margin:14px 0;">
+                        <div class="f-title">المركبة الأفقية</div>
+                        <div class="eq"><span class="var">V</span><sub>x</sub> = <span class="var">V</span> cos θ</div>
+                    </div>
+                    <div class="formula" style="margin:14px 0;">
+                        <div class="f-title">المركبة الرأسية</div>
+                        <div class="eq"><span class="var">V</span><sub>y</sub> = <span class="var">V</span> sin θ</div>
+                    </div>
+                    <div class="formula" style="margin:14px 0;">
+                        <div class="f-title">إعادة التركيب</div>
+                        <div class="eq"><span class="var">V</span> = √( <span class="var">V</span><sub>x</sub>² + <span
+                                class="var">V</span><sub>y</sub>² )</div>
+                    </div>
+                    <p style="margin-top:12px;">مركبة العبور وحدها تحدد <b>زمن العبور</b>، بينما تحدد المركبة الطولية
+                        مقدار <b>الاختراف</b> مع مجرى النهر.</p>
+                </div>
+
+                <div class="illus">
+                    <svg viewBox="0 0 420 340" role="img" aria-label="تحليل متجه السرعة إلى مركبتين">
+                        <!-- grid -->
+                        <g stroke="#dbe4ef" stroke-width="1">
+                            <line x1="60" y1="40" x2="60" y2="300" />
+                            <line x1="110" y1="40" x2="110" y2="300" />
+                            <line x1="160" y1="40" x2="160" y2="300" />
+                            <line x1="210" y1="40" x2="210" y2="300" />
+                            <line x1="260" y1="40" x2="260" y2="300" />
+                            <line x1="310" y1="40" x2="310" y2="300" />
+                            <line x1="360" y1="40" x2="360" y2="300" />
+                            <line x1="40" y1="60" x2="380" y2="60" />
+                            <line x1="40" y1="110" x2="380" y2="110" />
+                            <line x1="40" y1="160" x2="380" y2="160" />
+                            <line x1="40" y1="210" x2="380" y2="210" />
+                            <line x1="40" y1="260" x2="380" y2="260" />
+                        </g>
+                        <!-- axes -->
+                        <line x1="60" y1="280" x2="370" y2="280" stroke="#16233a" stroke-width="2"
+                            marker-end="url(#axAr)" />
+                        <line x1="60" y1="280" x2="60" y2="50" stroke="#16233a" stroke-width="2"
+                            marker-end="url(#axAr)" />
+                        <text x="380" y="284" class="svg-label" font-size="14" fill="#16233a">x</text>
+                        <text x="52" y="46" class="svg-label" font-size="14" fill="#16233a">y</text>
+
+                        <!-- vector V -->
+                        <line x1="60" y1="280" x2="310" y2="100" stroke="#0b2545" stroke-width="5"
+                            marker-end="url(#axNavy)" />
+                        <text x="200" y="175" class="svg-label" font-size="15" fill="#0b2545">V</text>
+
+                        <!-- components -->
+                        <line x1="60" y1="280" x2="310" y2="280" stroke="#1d5b9e" stroke-width="4"
+                            marker-end="url(#axBlue)" />
+                        <text x="180" y="302" class="svg-label" font-size="13" fill="#1d5b9e">Vx = V cos θ</text>
+
+                        <line x1="60" y1="280" x2="60" y2="100" stroke="#1f9d6b" stroke-width="4"
+                            marker-end="url(#axGreen)" />
+                        <text x="18" y="190" class="svg-label" font-size="13" fill="#1f9d6b"
+                            transform="rotate(-90 18 190)">Vy = V sin θ</text>
+
+                        <!-- dashed -->
+                        <line x1="310" y1="100" x2="310" y2="280" stroke="#5b6b84" stroke-width="2"
+                            stroke-dasharray="6 5" />
+                        <line x1="60" y1="100" x2="310" y2="100" stroke="#5b6b84" stroke-width="2"
+                            stroke-dasharray="6 5" />
+
+                        <!-- angle -->
+                        <path d="M60 280 m 48 0 a 48 48 0 0 0 -20 -40" fill="none" stroke="#e0a92e" stroke-width="3" />
+                        <text x="112" y="258" class="svg-label" font-size="15" fill="#e0a92e">θ</text>
+
+                        <defs>
+                            <marker id="axAr" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+                                <path d="M0,0 L8,3 L0,6 z" fill="#16233a" />
+                            </marker>
+                            <marker id="axNavy" markerWidth="12" markerHeight="12" refX="8" refY="3" orient="auto">
+                                <path d="M0,0 L9,3 L0,6 z" fill="#0b2545" />
+                            </marker>
+                            <marker id="axBlue" markerWidth="11" markerHeight="11" refX="8" refY="3" orient="auto">
+                                <path d="M0,0 L8,3 L0,6 z" fill="#1d5b9e" />
+                            </marker>
+                            <marker id="axGreen" markerWidth="11" markerHeight="11" refX="8" refY="3" orient="auto">
+                                <path d="M0,0 L8,3 L0,6 z" fill="#1f9d6b" />
+                            </marker>
+                        </defs>
+                    </svg>
+                    <div class="cap">تحليل متجه السرعة V إلى مركبتين متعامدتين</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>تطبيق سريع</h3>
+                <p>تتحرك طائرة بسرعة ثابتة مقدارها <span class="eq-inline">60 m/s</span> بزاوية <span
+                        class="eq-inline">30°</span> على الأفقي. أوجد الارتفاع الذي تكتسبه خلال <span
+                        class="eq-inline">5.0 s</span>.</p>
+                <button class="btn ghost" onclick="document.getElementById('quickAns').classList.toggle('show')">اعرض
+                    الحل</button>
+                <div id="quickAns" class="ex-a" style="display:none; margin-top:12px;">
+                    <b>الحل:</b><br>
+                    المركبة الرأسية للسرعة: <span class="eq-inline">Vy = V sin θ = 60 × sin 30° = 60 × 0.5 = 30
+                        m/s</span><br>
+                    الارتفاع: <span class="eq-inline">h = Vy × t = 30 × 5.0 = 150 m</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= 6. EXAMPLE ================= -->
+        <section class="block" id="example">
+            <div class="sec-head">
+                <div class="sec-num">٦</div>
+                <div>
+                    <h2>مثال محلول خطوة بخطوة</h2>
+                    <p>قارب يعبر نهرًا مستقيمًا</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>المسألة</h3>
+                <p>قارب سرعته في الماء الساكن <span class="eq-inline">4.0 m/s</span>، يتحرك في نهر مستقيم سرعة تياره
+                    <span class="eq-inline">3.0 m/s</span> (عمودية عليها). أوجد سرعة القارب بالنسبة إلى ضفة النهر.</p>
+
+                <h3 style="margin-top:22px;">المعطيات والمطلوب</h3>
+                <ul style="padding-right:22px; color:var(--ink);">
+                    <li>سرعة القارب في الماء الساكن = <b>4.0 m/s</b> (عمودية على الضفة)</li>
+                    <li>سرعة تيار النهر = <b>3.0 m/s</b> (موازية للضفة)</li>
+                    <li>المطلوب: سرعة القارب المحصلة بالنسبة إلى الضفة</li>
+                </ul>
+
+                <h3 style="margin-top:22px;">الخطوات</h3>
+                <ol class="steps">
+                    <li>ارسم مثلث متجهات قائم الزاوية: ضلعه القائم الأول سرعة القارب (4.0 m/s)، والثاني سرعة التيار (3.0
+                        m/s)، ووتره السرعة المحصلة.</li>
+                    <li>حلّل السرعة إلى اتجاهين متعامدين على المحورين x و y:
+                        <br><span class="eq-inline">Vx = 3.0 m/s</span> (على طول ضفة النهر)
+                        <br><span class="eq-inline">Vy = 4.0 m/s</span> (عبر النهر)
+                    </li>
+                    <li>أعد تركيب المركبتين باستخدام نظرية فيثاغورث:
+                        <div class="formula" style="margin-top:10px;">
+                            <div class="eq"><span class="var">V</span> = √(3.0² + 4.0²) = √25 = 5.0 m/s</div>
+                        </div>
+                    </li>
+                </ol>
+
+                <div class="answer-box">
+                    <div class="ico">✓</div>
+                    <div>إذن، سرعة القارب بالنسبة إلى ضفة النهر هي <b>5.0 m/s</b></div>
+                </div>
+
+                <div class="note-line" style="margin-top:18px;">
+                    🔍 <b>لماذا تكون السرعة المحصلة (5.0 m/s) وليست (7.0 m/s)؟</b><br>
+                    لأن مركّبتي السرعة متعامدتان. المجموع الجبري البسيط (4.0 + 3.0 = 7.0 m/s) غير صحيح؛ لأن الجمع
+                    الاتجاهي يعطي وتر المثلث القائم، وهو دائمًا أصغر من مجموع الضلعين. لاحظ أن <b>5.0 m/s</b> هي أكبر من
+                    المركبة المفردة الأكبر (4.0 m/s)، وهذا متوقع.
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= 7. RELATIVE VELOCITY ================= -->
+        <section class="block" id="relative">
+            <div class="sec-head">
+                <div class="sec-num">٧</div>
+                <div>
+                    <h2>ماذا يرى المراقب المتحرك؟</h2>
+                    <p>السرعة النسبية — المطر والحافلة</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>المفهوم</h3>
+                <p>الآن اعتبر أن مراقبًا على متن جسم متحرك. فكما تُرى الأمور من القطار، تختلف السرعة المقاسة بمقدار سرعة
+                    المراقب. والسرعة النسبية لـ <b>B</b> بالنسبة إلى <b>A</b> هي سرعة <b>B</b> مطروحًا منها سرعة
+                    <b>A</b>:</p>
+                <div class="formula">
+                    <div class="f-title">السرعة النسبية</div>
+                    <div class="eq"><span class="var">V</span><sub>AB</sub> = <span class="var">V</span><sub>B</sub> −
+                        <span class="var">V</span><sub>A</sub></div>
+                    <div class="note">أي سرعة الجسم المرصود مطروحًا منها سرعة المراقب</div>
+                </div>
+                <p style="margin-top:14px;">ويُرسَم كلا السهمين من نقطة أصل مشتركة. فالمطر في إطار الأرض يسقط رأسيًا
+                    تمامًا، لكن بطرح السرعة الخاصة بالحافلة المتحركة من سرعة سقوط المطر، يميل سهم الفرق إلى الخلف.</p>
+            </div>
+
+            <div class="rel-wrap">
+                <!-- Interactive rain -->
+                <div class="card">
+                    <h3>محاكاة تفاعلية: المطر والحافلة</h3>
+                    <div class="toggle-row">
+                        <button class="chip active" data-bus="0">حافلة ساكنة</button>
+                        <button class="chip" data-bus="1">حافلة متحركة</button>
+                    </div>
+                    <div class="illus" style="padding:6px;">
+                        <svg viewBox="0 0 420 340" id="rainSvg" role="img"
+                            aria-label="محاكاة السرعة النسبية للمطر والحافلة">
+                            <rect x="0" y="0" width="420" height="340" fill="#e8f3fb" />
+                            <!-- ground -->
+                            <rect x="0" y="300" width="420" height="40" fill="#c8d6e5" />
+                            <!-- bus -->
+                            <g id="busG">
+                                <rect x="40" y="150" width="300" height="130" rx="16" fill="#1d5b9e" />
+                                <rect x="60" y="170" width="70" height="55" rx="8" fill="#dff0fb" stroke="#0b2545"
+                                    stroke-width="3" />
+                                <rect x="150" y="170" width="70" height="55" rx="8" fill="#dff0fb" stroke="#0b2545"
+                                    stroke-width="3" />
+                                <rect x="240" y="170" width="70" height="55" rx="8" fill="#dff0fb" stroke="#0b2545"
+                                    stroke-width="3" />
+                                <circle cx="100" cy="285" r="18" fill="#16233a" />
+                                <circle cx="100" cy="285" r="7" fill="#c8d6e5" />
+                                <circle cx="280" cy="285" r="18" fill="#16233a" />
+                                <circle cx="280" cy="285" r="7" fill="#c8d6e5" />
+                            </g>
+                            <!-- rain lines (animated) -->
+                            <g id="rainLines" stroke="#4a7fa8" stroke-width="2.5" opacity=".9"></g>
+                            <!-- velocity vectors -->
+                            <g id="vecGroup" style="display:none;">
+                                <!-- V rain (down) -->
+                                <line x1="340" y1="60" x2="340" y2="120" stroke="#4a7fa8" stroke-width="4"
+                                    marker-end="url(#rainAr)" />
+                                <text x="340" y="140" text-anchor="middle" class="svg-label" font-size="11"
+                                    fill="#4a7fa8">V مطر</text>
+                                <!-- V bus (right) -->
+                                <line x1="340" y1="120" x2="400" y2="120" stroke="#e0a92e" stroke-width="4"
+                                    marker-end="url(#busAr)" />
+                                <text x="400" y="108" text-anchor="middle" class="svg-label" font-size="11"
+                                    fill="#e0a92e">V حافلة</text>
+                                <!-- V relative -->
+                                <line x1="340" y1="60" x2="400" y2="120" stroke="#d64545" stroke-width="4"
+                                    marker-end="url(#relAr)" />
+                                <text x="395" y="78" text-anchor="middle" class="svg-label" font-size="11"
+                                    fill="#d64545">V نسبية</text>
+                            </g>
+                            <defs>
+                                <marker id="rainAr" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto">
+                                    <path d="M0,0 L6,3 L0,6 z" fill="#4a7fa8" />
+                                </marker>
+                                <marker id="busAr" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto">
+                                    <path d="M0,0 L6,3 L0,6 z" fill="#e0a92e" />
+                                </marker>
+                                <marker id="relAr" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto">
+                                    <path d="M0,0 L6,3 L0,6 z" fill="#d64545" />
+                                </marker>
+                            </defs>
+                        </svg>
+                    </div>
+                    <p class="muted" style="font-size:.88rem; margin-top:10px;" id="rainStatus">الحافلة ساكنة: المطر
+                        يسقط رأسيًا ويبدو عموديًا للمراقب.</p>
+                </div>
+
+                <!-- Explanation -->
+                <div class="card">
+                    <h3>ماذا يحدث في كل حالة؟</h3>
+                    <div id="relExplain">
+                        <p><b>الحافلة الساكنة:</b> سرعة الحافلة = 0، إذن <span class="eq-inline">V<sub>نسبية</sub> =
+                                V<sub>مطر</sub> − 0 = V<sub>مطر</sub></span>. يرى المراقب المطر يسقط رأسيًا تمامًا.</p>
+                        <p><b>الحافلة المتحركة:</b> تُطرح سرعة الحافلة من سرعة المطر. سهم الفرق يميل إلى <b>الخلف</b>،
+                            لذا يبدو المطر مائلًا نحو الخلف على النافذة.</p>
+                    </div>
+                    <div class="answer-box" style="margin-top:16px; background:#fff8e8; border-color:#f0dfb4;">
+                        <div class="ico" style="background:var(--gold);">!</div>
+                        <div>إذن الإجابة الصحيحة: الخطوط المائلة قادمة من <b>خلف</b> الحافلة.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" style="margin-top:22px;">
+                <h3>سؤال الدرس — الإجابة</h3>
+                <p><b>لماذا ترسو عبّارة موجّهة مباشرة عبر النيل عند نقطة في اتجاه مصب النيل بمسافة؟</b></p>
+                <p>لأن سرعة العبّارة بالنسبة إلى الأرض هي المحصلة الاتجاهية لسرعتها في الماء الساكن وسرعة تيار النهر.
+                    مركبة العبور (العمودية على الضفة) تحدد زمن العبور، بينما المركبة الطولية (مع التيار) تحدد مقدار
+                    الاختراف. لذلك تميل مسارها مع مجرى النهر، رغم أن مقدمتها لا تنحرف أبدًا.</p>
+                <p style="margin-top:10px;"><b>لماذا يترك المطر المتساقط خطوطًا مائلة على نافذة حافلة متحركة؟</b></p>
+                <p>لأن المراقب داخل الحافلة يرى السرعة النسبية للمطر = سرعة المطر − سرعة الحافلة، فيبدو المطر مائلًا نحو
+                    الخلف داخل الحافلة.</p>
+            </div>
+        </section>
+
+        <!-- ================= 8. EXERCISES ================= -->
+        <section class="block" id="exercises">
+            <div class="sec-head">
+                <div class="sec-num">٨</div>
+                <div>
+                    <h2>تدريبات</h2>
+                    <p>اختبر فهمك — اضغط على الزر لعرض الإجابة</p>
+                </div>
+            </div>
+
+            <!-- Ex 1 -->
+            <div class="ex">
+                <div class="ex-q">(١) يتحرك قارب سرعته <span class="eq-inline">2.0 m/s</span> في الماء الساكن في نهر
+                    مستقيم سرعة تياره <span class="eq-inline">1.5 m/s</span>، ومقدمته متجهة بشكل عمودي على ضفة النهر.
+                    أوجد سرعة القارب بالنسبة إلى ضفة النهر.</div>
+                <button class="btn small ghost" onclick="toggleAns(this)">اعرض الحل</button>
+                <div class="ex-a">
+                    <b>الحل:</b> المركبتان متعامدتان، إذن:<br>
+                    <span class="eq-inline">V = √(2.0² + 1.5²) = √(4 + 2.25) = √6.25 = 2.5 m/s</span><br>
+                    سرعة القارب بالنسبة إلى الضفة = <b>2.5 m/s</b>
+                </div>
+            </div>
+
+            <!-- Ex 2 -->
+            <div class="ex">
+                <div class="ex-q">(٢) تصعد طائرة بسرعة ثابتة مقدارها <span class="eq-inline">50 m/s</span> بزاوية <span
+                        class="eq-inline">30°</span> على الأفقي. أوجد الارتفاع الذي تكتسبه الطائرة خلال <span
+                        class="eq-inline">10 s</span>.</div>
+                <button class="btn small ghost" onclick="toggleAns(this)">اعرض الحل</button>
+                <div class="ex-a">
+                    <b>الحل:</b><br>
+                    المركبة الرأسية: <span class="eq-inline">Vy = 50 × sin 30° = 50 × 0.5 = 25 m/s</span><br>
+                    الارتفاع: <span class="eq-inline">h = Vy × t = 25 × 10 = 250 m</span>
+                </div>
+            </div>
+
+            <!-- Ex 3 -->
+            <div class="ex">
+                <div class="ex-q">(٣) بالنسبة لمراقب ينظر من نافذة القطار A، الذي يتحرك على مسار أفقي بسرعة <span
+                        class="eq-inline">10 m/s</span>، يبدو المطر المتساقط رأسيًا وكأنه يسقط بزاوية <span
+                        class="eq-inline">45°</span> الرأسي.<br>(i) أوجد سرعة قطرات المطر.<br>(ii) بالنسبة لمراقب ينظر
+                    من نافذة القطار B الذي يمر بجانب القطار A، يبدو المطر ساقطًا بزاوية <span
+                        class="eq-inline">60°</span> الرأسي. أوجد سرعة القطار B.</div>
+                <button class="btn small ghost" onclick="toggleAns(this)">اعرض الحل</button>
+                <div class="ex-a">
+                    <b>الحل (i):</b><br>
+                    السرعة الأفقية النسبية = سرعة القطار = 10 m/s.<br>
+                    بما أن الزاوية 45°، فإن المركبة الرأسية = المركبة الأفقية = 10 m/s.<br>
+                    إذن سرعة المطر = <span class="eq-inline">√(10² + 10²) = 14.1 m/s</span> تقريبًا.<br><br>
+                    <b>الحل (ii):</b><br>
+                    عندما تبدو الزاوية 60°: <span class="eq-inline">tan 60° = V<sub>أفقي نسبي</sub> /
+                        V<sub>رأسي</sub></span><br>
+                    <span class="eq-inline">V<sub>أفقي نسبي</sub> = 10 × tan 60° ≈ 17.3 m/s</span><br>
+                    هذه هي سرعة القطار B بالنسبة للقطار A. وبما أن الاتجاهين متعاكسان غالبًا، تُحسب سرعة B بالنسبة للأرض
+                    بناءً على اتجاه الحركة.
+                </div>
+            </div>
+
+            <!-- Ex 4 -->
+            <div class="ex">
+                <div class="ex-q">(٤) تتحرك السيارة A شرقًا بسرعة <span class="eq-inline">20 m/s</span>، وتتحرك السيارة
+                    B شمالًا بسرعة <span class="eq-inline">20 m/s</span>. أوجد اتجاه ومقدار السرعة النسبية للسيارة B
+                    بالنسبة إلى السيارة A.</div>
+                <button class="btn small ghost" onclick="toggleAns(this)">اعرض الحل</button>
+                <div class="ex-a">
+                    <b>الحل:</b><br>
+                    <span class="eq-inline">V<sub>BA</sub> = V<sub>B</sub> − V<sub>A</sub></span><br>
+                    المركبة الأفقية: −20 m/s (غربًا)، المركبة الرأسية: +20 m/s (شمالًا).<br>
+                    المقدار: <span class="eq-inline">√((−20)² + 20²) = √800 ≈ 28.3 m/s</span><br>
+                    الاتجاه: شمال غرب بزاوية 45°.
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer>
+        <div class="brand-mini">
+            <div class="logo">ك</div>
+            <b>منصة كريم الصباح التفاعلية</b>
+        </div>
+        <div>متجهات السرعة والسرعة النسبية — الدرس 1-1</div>
+        <small>صُمّمت هذه المنصة لتسهيل فهم درس متجهات السرعة والسرعة النسبية بطريقة تفاعلية.</small>
+    </footer>
+
+    <script>
+        /* ============ PROGRESS BAR ============ */
+        window.addEventListener('scroll', () => {
+            const h = document.documentElement;
+            const sc = h.scrollTop / (h.scrollHeight - h.clientHeight) * 100;
+            document.getElementById('progress').style.width = sc + '%';
+        });
+
+        /* ============ NAV ACTIVE ============ */
+        const navLinks = document.querySelectorAll('.nav-inner a');
+        const sections = document.querySelectorAll('section.block');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(s => {
+                if (window.scrollY >= s.offsetTop - 120) current = s.id;
+            });
+            navLinks.forEach(a => {
+                a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+            });
+        });
+
+        /* ============ PREDICT CHECK ============ */
+        document.querySelectorAll('.check-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const key = btn.dataset.for;
+                const box = btn.closest('.predict');
+                const labels = box.querySelectorAll('.opt label');
+                const fb = document.getElementById('fb-' + key);
+                let selected = null;
+                labels.forEach(l => {
+                    l.classList.remove('correct', 'wrong');
+                    const inp = l.querySelector('input');
+                    if (inp.checked) selected = l;
+                });
+                if (!selected) {
+                    fb.className = 'feedback show no';
+                    fb.textContent = '⚠️ اختر إجابة أولًا.';
+                    return;
+                }
+                labels.forEach(l => {
+                    if (l.dataset.correct === '1') l.classList.add('correct');
+                });
+                if (selected.dataset.correct === '1') {
+                    fb.className = 'feedback show ok';
+                    fb.textContent = '✅ إجابة صحيحة! أحسنت.';
+                } else {
+                    selected.classList.add('wrong');
+                    fb.className = 'feedback show no';
+                    fb.textContent = '❌ ليست الإجابة الصحيحة. الإجابة الصحيحة موضّحة باللون الأخضر.';
+                }
+            });
+        });
+
+        /* ============ LAB SIMULATION ============ */
+        const vPaper = document.getElementById('vPaper');
+        const vPen = document.getElementById('vPen');
+        const outVx = document.getElementById('outVx');
+        const outVy = document.getElementById('outVy');
+        const outV = document.getElementById('outV');
+        const outTheta = document.getElementById('outTheta');
+        const vPaperVal = document.getElementById('vPaperVal');
+        const vPenVal = document.getElementById('vPenVal');
+
+        const hLine = document.getElementById('hLine');
+        const vLine = document.getElementById('vLine');
+        const dLine = document.getElementById('dLine');
+        const penG = document.getElementById('penG');
+        const endH = document.getElementById('endH');
+        const endV = document.getElementById('endV');
+        const endD = document.getElementById('endD');
+
+        function updateLab() {
+            const vy = parseFloat(vPaper.value);
+            const vx = parseFloat(vPen.value);
+            vPaperVal.textContent = vy.toFixed(1);
+            vPenVal.textContent = vx.toFixed(1);
+
+            const V = Math.sqrt(vx * vx + vy * vy);
+            const theta = Math.atan2(vy, vx) * 180 / Math.PI;
+
+            outVx.textContent = vx.toFixed(1);
+            outVy.textContent = vy.toFixed(1);
+            outV.textContent = V.toFixed(1);
+            outTheta.textContent = theta.toFixed(1);
+
+            // Drawing scale: 1 unit m/s -> 55 px
+            const scale = 55;
+            const startX = 80, startY = 100;
+            const dx = vx * scale;
+            const dy = vy * scale;
+
+            const endX = startX + dx;
+            const endY = startY + dy;
+
+            // horizontal line
+            hLine.setAttribute('x1', startX);
+            hLine.setAttribute('y1', startY);
+            hLine.setAttribute('x2', endX);
+            hLine.setAttribute('y2', startY);
+
+            // vertical line
+            vLine.setAttribute('x1', endX);
+            vLine.setAttribute('y1', startY);
+            vLine.setAttribute('x2', endX);
+            vLine.setAttribute('y2', endY);
+
+            // diagonal
+            dLine.setAttribute('x1', startX);
+            dLine.setAttribute('y1', startY);
+            dLine.setAttribute('x2', endX);
+            dLine.setAttribute('y2', endY);
+
+            // pen
+            penG.setAttribute('transform', `translate(${dx}, ${dy})`);
+
+            // end markers
+            endH.setAttribute('cx', endX);
+            endH.setAttribute('cy', startY);
+            endV.setAttribute('cx', endX);
+            endV.setAttribute('cy', endY);
+            endD.setAttribute('cx', endX);
+            endD.setAttribute('cy', endY);
+        }
+        vPaper.addEventListener('input', updateLab);
+        vPen.addEventListener('input', updateLab);
+        updateLab();
+
+        /* ============ RELATIVE RAIN SIMULATION ============ */
+        const rainLines = document.getElementById('rainLines');
+        const rainSvg = document.getElementById('rainSvg');
+        const busG = document.getElementById('busG');
+        const vecGroup = document.getElementById('vecGroup');
+        const rainStatus = document.getElementById('rainStatus');
+        const chips = document.querySelectorAll('.chip[data-bus]');
+
+        let busMoving = false;
+        let rainOffset = 0;
+        let busOffset = 0;
+        let animationId = null;
+
+        function buildRain() {
+            rainLines.innerHTML = '';
+            for (let i = 0; i < 34; i++) {
+                const x = Math.random() * 420;
+                const y = Math.random() * 340;
+                const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+                line.setAttribute('x1', x);
+                line.setAttribute('y1', y);
+                line.setAttribute('x2', x);
+                line.setAttribute('y2', y + 22);
+                line.dataset.baseX = x;
+                line.dataset.baseY = y;
+                line.dataset.speed = 1.5 + Math.random() * 1.5;
+                rainLines.appendChild(line);
+            }
+        }
+        buildRain();
+
+        function animateRain() {
+            const lines = rainLines.querySelectorAll('line');
+            lines.forEach(line => {
+                let y = parseFloat(line.dataset.baseY);
+                y += parseFloat(line.dataset.speed) * (busMoving ? 1.6 : 1);
+                if (y > 340) y = -30;
+                line.dataset.baseY = y;
+
+                const x = parseFloat(line.dataset.baseX);
+                // when bus moving, lines slant backwards (to the left)
+                const slant = busMoving ? -18 : 0;
+                line.setAttribute('x1', x);
+                line.setAttribute('y1', y);
+                line.setAttribute('x2', x + slant);
+                line.setAttribute('y2', y + 22);
+            });
+
+            // bus movement animation
+            if (busMoving) {
+                busOffset += 0.6;
+                if (busOffset > 8) busOffset = 0;
+                busG.setAttribute('transform', `translate(${busOffset - 4}, 0)`);
+            } else {
+                busG.setAttribute('transform', 'translate(0,0)');
+            }
+
+            animationId = requestAnimationFrame(animateRain);
+        }
+
+        chips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                chips.forEach(c => c.classList.remove('active'));
+                chip.classList.add('active');
+                busMoving = chip.dataset.bus === '1';
+                vecGroup.style.display = busMoving ? 'block' : 'none';
+
+                if (busMoving) {
+                    rainStatus.innerHTML = '<b>الحافلة متحركة:</b> يرى المراقب المطر مائلًا نحو <b>الخلف</b> بسبب السرعة النسبية.';
+                } else {
+                    rainStatus.innerHTML = '<b>الحافلة ساكنة:</b> المطر يسقط رأسيًا ويبدو عموديًا للمراقب.';
+                }
+            });
+        });
+
+        animateRain();
+
+        /* ============ TOGGLE ANSWER ============ */
+        function toggleAns(btn) {
+            const ans = btn.nextElementSibling;
+            ans.classList.toggle('show');
+            btn.textContent = ans.classList.contains('show') ? 'إخفاء الحل' : 'اعرض الحل';
+        }
+
+        /* ============ INITIAL REVEAL ON SCROLL ============ */
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.style.opacity = '1';
+                    e.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, {threshold: 0.08});
+
+        document.querySelectorAll('.card, .illus, .predict, .ex').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(18px)';
+            el.style.transition = 'opacity .6s ease, transform .6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+
+</html>
